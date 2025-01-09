@@ -42,9 +42,9 @@ public class ModuleIC2 extends RailcraftModulePayload {
                 RailcraftCarts.ENERGY_BATBOX,
                 RailcraftCarts.ENERGY_MFE,
                 RailcraftCarts.ENERGY_CESU,
+                RailcraftCarts.ENERGY_MFSU,
                 RailcraftBlocks.MANIPULATOR
         );
-        if (Mod.IC2_CLASSIC.isLoaded()) add(RailcraftCarts.ENERGY_MFSU);
 
         setEnabledEventHandler(new ModuleEventHandler() {
 
@@ -99,19 +99,19 @@ public class ModuleIC2 extends RailcraftModulePayload {
                             );
                         }
                     }
-                } else {
-                    ItemStack mfsu = ModItems.MFSU.getStack();
-                    if (!InvTools.isEmpty(mfsu)) {
-                        RailcraftCarts cart = RailcraftCarts.ENERGY_MFSU;
-                        ItemStack stack = cart.getStack();
-                        if (!InvTools.isEmpty(stack)) {
-                            CraftingPlugin.addShapedRecipe(stack,
-                                    "E",
-                                    "M",
-                                    'E', mfsu,
-                                    'M', Items.MINECART
-                            );
-                        }
+                }
+
+                ItemStack mfsu = ModItems.MFSU.getStack();
+                if (!InvTools.isEmpty(mfsu)) {
+                    RailcraftCarts cart = RailcraftCarts.ENERGY_MFSU;
+                    ItemStack stack = cart.getStack();
+                    if (!InvTools.isEmpty(stack)) {
+                        CraftingPlugin.addShapedRecipe(stack,
+                                "E",
+                                "M",
+                                'E', mfsu,
+                                'M', Items.MINECART
+                        );
                     }
                 }
 

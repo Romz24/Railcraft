@@ -11,10 +11,14 @@
 package mods.railcraft.common.carts;
 
 import mods.railcraft.common.plugins.ic2.IC2Plugin;
+import mods.railcraft.common.plugins.misc.Mod;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.World;
 
 public final class EntityCartEnergyMFSU extends CartBaseEnergy {
+    private static final int TIER = Mod.IC2_CLASSIC.isLoaded() ? 3 : 4;
+    private static final int CAPACITY = Mod.IC2_CLASSIC.isLoaded() ? 10000000 : 40000000;
+    private static final int TRANSFER = Mod.IC2_CLASSIC.isLoaded() ? 512 : 2048;
 
     public EntityCartEnergyMFSU(World world) {
         super(world);
@@ -26,7 +30,7 @@ public final class EntityCartEnergyMFSU extends CartBaseEnergy {
 
     @Override
     public int getTier() {
-        return 3;
+        return TIER;
     }
 
     @Override
@@ -36,12 +40,12 @@ public final class EntityCartEnergyMFSU extends CartBaseEnergy {
 
     @Override
     public int getCapacity() {
-        return 10000000;
+        return CAPACITY;
     }
 
     @Override
     public int getTransferLimit() {
-        return 512;
+        return TRANSFER;
     }
 
     @Override
